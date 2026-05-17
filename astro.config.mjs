@@ -11,5 +11,9 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [solidJs()]
+  integrations: [solidJs()],
+  
+  // Base path for GitHub Pages
+  base: '/tic-tac-toe-astro',
+  outDir: './dist'
 });
