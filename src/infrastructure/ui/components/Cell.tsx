@@ -5,15 +5,23 @@ interface CellProps {
 }
 
 export default function Cell(props: CellProps) {
+  const baseClasses = "w-24 h-24 flex items-center justify-center text-5xl font-bold rounded-lg border-2 transition-all duration-200";
+  
+  const colorClasses = props.value === 'X' 
+    ? 'text-blue-600 bg-blue-50 border-blue-300' 
+    : props.value === 'O'
+    ? 'text-red-600 bg-red-50 border-red-300'
+    : 'text-gray-400';
+  
+  const stateClasses = !props.value && !props.disabled
+    ? 'bg-white hover:bg-gray-50 cursor-pointer shadow-sm hover:shadow-md'
+    : 'bg-gray-100 cursor-not-allowed opacity-60';
+
   return (
     <button
       onClick={props.onClick}
       disabled={props.disabled}
-      class={`w-20 h-20 flex items-center justify-center text-4xl font-bold rounded-md transition-colors
-        ${props.value === 'X' ? 'text-blue-600' : 'text-red-600'}
-        ${!props.value && !props.disabled ? 'bg-white hover:bg-gray-100 cursor-pointer' : 'bg-gray-100 cursor-not-allowed'}
-        border-2 border-gray-300
-      `}
+      class={`${baseClasses} ${colorClasses} ${stateClasses}`}
     >
       {props.value}
     </button>
