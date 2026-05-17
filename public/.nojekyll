@@ -1,0 +1,3 @@
+# Este archivo desactiva Jekyll en GitHub Pages
+# Necesario para servir archivos/directorios que empiezan con _
+# (como el directorio _astro generado por Astro)
